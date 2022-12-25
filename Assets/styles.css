@@ -1,0 +1,53 @@
+@font-face {
+    font-family: 'get_schwiftyregular';
+    src: url('fonts/webfontkit-20221225-000141/get_schwifty-webfont.woff2') format('woff2'),
+        url('fonts/webfontkit-20221225-000141/get_schwifty-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+#background{
+    background-position: initial;
+    position:absolute;
+    width: 120em;
+    height: 60em;
+    z-index: -1;
+    filter: blur(3px);
+    background-attachment: fixed;
+    background-size: cover;
+}
+.container{
+
+}
+#rickAndMorty{
+    margin-top: 2em;
+}
+.h3{
+    font-family:'get_schwiftyregular',  Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    text-align: center;
+    margin-top: 1em;
+    color: rgb(66, 180, 202);
+}
+body{
+    background: url(BackgroundStatic.png) no-repeat;
+    background-position: initial;
+    background-size: cover;
+    height: 100%;
+    background-attachment: fixed;
+    z-index: -1;
+}
+#getCharactersButton{
+    width: 10em;
+    text-align: center;
+    margin: 2em auto;
+    font-family: 'get_schwiftyregular', Arial, Helvetica, sans-serif;
+}
+#feed{
+    font-family: 'get_schwiftyregular', Arial, Helvetica, sans-serif;
+    color: rgb(66, 180, 202);
+    font-size: 2em;
+    text-align: center;
+}
+#roshkaLogo{
+    width: 20%;
+}
