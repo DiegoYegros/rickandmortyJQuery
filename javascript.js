@@ -9,8 +9,8 @@ function getAllNames(enlace) {
             let characters = JSON.parse(this.response)
             characters.results.forEach(personaje => {
                 const charCard = document.createElement('div')
-                charCard.innerHTML = personaje.name
-                document.getElementById("feed").appendChild(charCard)
+                charCard.innerHTML = personaje.name + "<br>" + "<img src=" + personaje.image+">";
+                $("#feed").append(charCard);
             });
                 nextURL = characters.info.next
                 prevURL = characters.info.prev
@@ -25,7 +25,6 @@ function getAllNames(enlace) {
     xhr.send()
 }
 function getCharacterNames(enlace) {
-    document.getElementById("feed").innerHTML = ""
     let xhr = new XMLHttpRequest()
     xhr.open('GET', enlace, true)
     xhr.onload = function () {
@@ -37,8 +36,8 @@ function getCharacterNames(enlace) {
             nextURL = characters.info.next
             characters.results.forEach(personaje => {
                 const charCard = document.createElement('div')
-                charCard.innerHTML = personaje.name
-                document.getElementById("feed").appendChild(charCard)
+                charCard.innerHTML = personaje.name + "<br>" + "<img src=" + personaje.image + ">"; 
+                $("#feed").append(charCard);
             });
         }
         else {
@@ -49,10 +48,10 @@ function getCharacterNames(enlace) {
 }
 function getPrevNames(actualURL) {
     if (prevURL == null) {
-        document.getElementById("feed").innerHTML = ""
+        nextURL = "https://rickandmortyapi.com/api/character";
         const charCard = document.createElement('div')
         charCard.innerHTML = "NO PREVIOUS PAGE"
-        document.getElementById("feed").appendChild(charCard)
+        $("#feed").append(charCard);
         return;
     }
     let xhr = new XMLHttpRequest()
@@ -69,13 +68,11 @@ function getPrevNames(actualURL) {
     }
     xhr.send()
 }
-
 function getNextNames(actualURL) {
     if (nextURL == null) {
-        document.getElementById("feed").innerHTML = ""
         const charCard = document.createElement('div')
         charCard.innerHTML = "NO NEXT PAGE"
-        document.getElementById("feed").appendChild(charCard)
+        $("#feed").append(charCard)
         return;
     }
     let xhr = new XMLHttpRequest()
@@ -98,17 +95,17 @@ function showCharacters() {
 }
 
 $("#prevButton").on('click', function (e) {
-    document.getElementById("feed").innerHTML = ""
+    $("#feed").html("");
     getPrevNames(prevURL);
 });
 
 $("#getCharactersButton").on('click', function (e) {
-    document.getElementById("feed").innerHTML = ""
+    $("#feed").html("");
     showCharacters();    
 });
 
 
 $("#nextButton").on('click', function (e) {
-    document.getElementById("feed").innerHTML = ""
+    $("#feed").html("");
     getNextNames(nextURL);
 });
